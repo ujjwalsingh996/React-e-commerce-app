@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
-import { Card, Button, Container, Navbar } from "react-bootstrap";
-import Cart from "./Cart/Cart";
+import { Card, Button, Container } from "react-bootstrap";
+import Cart from "../components/Cart/Cart";
 
 import "./Products.css";
-import CartContext from "./store/cart-context";
+import CartContext from "../components/store/cart-context";
 
 const productsArr = [
   {
@@ -44,7 +44,6 @@ const Products = () => {
   const cartCtx = useContext(CartContext);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   const addToCartHandler = (prod) => {
     cartCtx.addItem(prod);
@@ -52,16 +51,6 @@ const Products = () => {
   return (
     <React.Fragment>
       <Cart show={show} handleClose={handleClose}></Cart>
-      <Navbar bg="dark" expand="lg" variant="dark">
-        <Container>
-          <Navbar.Brand href="#">Home</Navbar.Brand>
-          <Navbar.Brand href="#">Store</Navbar.Brand>
-          <Navbar.Brand href="#">About</Navbar.Brand>
-          <Button variant="primary" onClick={handleShow}>
-            Cart ({cartCtx.items.length})
-          </Button>
-        </Container>
-      </Navbar>
       {productsArr.map((prod) => (
         <Container className="products">
           <Card className="mt-3" style={{ width: "18rem" }}>
