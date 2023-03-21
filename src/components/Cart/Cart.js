@@ -5,6 +5,10 @@ import CartContext from "../store/cart-context";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
+
+  const removeItemHandler = (prod) => {
+    cartCtx.removeItem(prod)
+  }
   return (
     <>
       <Offcanvas show={props.show} onHide={props.handleClose}>
@@ -23,7 +27,7 @@ const Cart = (props) => {
                 <strong>
                   {prod.title} - Rs {prod.price}
                 </strong>{" "}
-                <Button className="content-right">Remove</Button>
+                <Button onClick={() => removeItemHandler(prod.title)} className="content-right">Remove</Button>
               </Toast.Body>
             </Toast>
           ))}
