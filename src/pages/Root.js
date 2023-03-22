@@ -13,9 +13,10 @@ const RootLayout = () => {
     <React.Fragment>
       <Navbar bg="dark" expand="lg" variant="dark">
         <Container>
-          <Navbar.Brand href="/homepage">Home</Navbar.Brand>
+          <Navbar.Brand href="/home">Home</Navbar.Brand>
           <Navbar.Brand href="/">Store</Navbar.Brand>
-          <Navbar.Brand href="/aboutus">About</Navbar.Brand>
+          <Navbar.Brand href="/about">About</Navbar.Brand>
+          <Navbar.Brand href="/contact">Contact us</Navbar.Brand>
           <Button variant="primary" onClick={handleShow}>
             Cart ({cartCtx.items.length})
           </Button>
